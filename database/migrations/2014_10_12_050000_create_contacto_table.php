@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRespuestasTable extends Migration
+class CreateContactoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateRespuestasTable extends Migration
      */
     public function up()
     {
-        Schema::create('respuestas', function (Blueprint $table) {
+        Schema::create('contactos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('texto_respuesta');
-            $table->integer('ponderacion');
-            $table->bigInteger('encuesta_id')->unsigned();
-            $table->foreign('encuesta_id')->references('id')->on('encuestas');
-            $table->bigInteger('pregunta_id')->unsigned();
-            $table->foreign('pregunta_id')->references('id')->on('preguntas');
+            $table->bigInteger('user_id')->unsigned(); 
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('apellido');
+            $table->string('nombre');
+            $table->string('cargo');
+            $table->string('telefono');
+            $table->string('email');
+            $table->string('celular');
             $table->timestamps();
         });
     }
@@ -33,7 +35,7 @@ class CreateRespuestasTable extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('respuestas');
+        Schema::dropIfExists('contactos');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
