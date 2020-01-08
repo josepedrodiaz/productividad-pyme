@@ -17,7 +17,7 @@ class CreateRespuestasUsuarioTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('respuesta_opcion_id')->unsigned();
             $table->foreign('respuesta_opcion_id')->references('id')->on('respuestas_opciones');
-            $table->integer('ponderacion');
+            $table->integer('ponderacion')->nullable();
             $table->bigInteger('encuesta_id')->unsigned();
             $table->foreign('encuesta_id')->references('id')->on('encuestas');
             $table->bigInteger('pregunta_id')->unsigned();

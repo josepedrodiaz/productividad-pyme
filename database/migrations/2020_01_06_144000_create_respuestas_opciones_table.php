@@ -16,7 +16,7 @@ class CreateRespuestasOpcionesTable extends Migration
         Schema::create('respuestas_opciones', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('texto');
-            $table->integer('ponderacion');
+            $table->integer('ponderacion')->nullable();
             $table->timestamps();
         });
     }

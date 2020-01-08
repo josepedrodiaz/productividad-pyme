@@ -19,21 +19,21 @@ class CreateEmpresasTable extends Migration
             $table->string('razon_social');
             $table->bigInteger('sector_id')->unsigned();
             $table->foreign('sector_id')->references('id')->on('sectores');
-            $table->bigInteger('seccion_id')->unsigned(); 
+            $table->bigInteger('seccion_id')->unsigned()->nullable();; 
             $table->foreign('seccion_id')->references('id')->on('secciones');
-            $table->bigInteger('grupo_id')->unsigned(); 
+            $table->bigInteger('grupo_id')->unsigned()->nullable(); 
             $table->foreign('grupo_id')->references('id')->on('grupos');
-            $table->bigInteger('categoria_pyme_id')->unsigned(); 
+            $table->bigInteger('categoria_pyme_id')->unsigned()->nullable(); 
             $table->foreign('categoria_pyme_id')->references('id')->on('categoria_pyme');
-            $table->bigInteger('organizacion_empresaria_id')->unsigned(); 
+            $table->bigInteger('organizacion_empresaria_id')->unsigned()->nullable(); 
             $table->foreign('organizacion_empresaria_id')->references('id')->on('organizacion_empresaria'); // Relacion uno a muchos -> https://stackoverflow.com/questions/48841221/one-to-many-relationship-laravel-migration
-            $table->integer('cantidad_empleados');
+            $table->integer('cantidad_empleados')->nullable();
             $table->string('calle');
             $table->string('numero');
-            $table->string('cp');
+            $table->string('cp')->nullable();
             $table->bigInteger('localidad_gid')->unsigned(); 
             $table->foreign('localidad_gid')->references('gid')->on('localidades');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->boolean('es_cooperativa');
             $table->timestamps();
         });

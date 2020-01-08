@@ -19,10 +19,10 @@ class CreateContactoTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('apellido');
             $table->string('nombre');
-            $table->string('cargo');
-            $table->string('telefono');
+            $table->string('cargo')->nullable();
+            $table->string('telefono')->nullable();
             $table->string('email');
-            $table->string('celular');
+            $table->string('celular')->nullable();
             $table->timestamps();
         });
     }

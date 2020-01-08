@@ -19,12 +19,12 @@ class CreateDocumentosTable extends Migration
             $table->string('url_documento');
             $table->bigInteger('rubro_id')->unsigned();
             $table->foreign('rubro_id')->references('id')->on('rubros');
-            $table->dateTime('vigencia_desde');
-            $table->dateTime('vigencia_hasta');
+            $table->dateTime('vigencia_desde')->nullable();
+            $table->dateTime('vigencia_hasta')->nullable();
             $table->string('descripcion');
-            $table->string('ruta_archivo');
-            $table->string('ruta_imagen');
-            $table->string('url_video');
+            $table->string('ruta_archivo')->nullable();
+            $table->string('ruta_imagen')->nullable();
+            $table->string('url_video')->nullable();
             $table->bigInteger('sector_id')->unsigned();
             $table->foreign('sector_id')->references('id')->on('sectores');
             $table->bigInteger('categoria_pyme_id')->unsigned();
